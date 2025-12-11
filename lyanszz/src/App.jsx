@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Home from './components/Home';
 import './App.css';
-import BlindTest from './components/Blindtest';
+import BlindTest from './components/BlindTest';
 import './App.css';
 
 function App() {

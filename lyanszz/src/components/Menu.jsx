@@ -1,4 +1,3 @@
-// src/components/Menu.jsx
 import React, { useState } from 'react';
 
 function Menu({ onStart }) {
