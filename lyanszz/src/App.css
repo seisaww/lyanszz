@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  color: #333;
+  overflow-x: hidden;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  animation: float 6s infinite ease-in-out;
+}
+.b1 { width: 300px; height: 300px; top: -50px; left: -50px; }
+.b2 { width: 200px; height: 200px; bottom: -50px; right: -50px; animation-delay: 2s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px); 
+  -webkit-backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  z-index: 10;
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+h1 { color: #d6336c; margin-bottom: 10px; font-weight: 800; }
+.highlight { color: #ff6b6b; }
+p { color: #666; font-size: 0.9rem; }
+
+input {
+  width: 100%;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid transparent;
+  background: rgba(255, 255, 255, 0.8);
+  margin: 20px 0;
+  font-family: inherit;
+  font-size: 1rem;
+  text-align: center;
+  box-sizing: border-box;
+  transition: 0.3s;
+}
+input:focus {
+  outline: none;
+  background: white;
+  border-color: #ff6b6b;
+  box-shadow: 0 0 15px rgba(255, 107, 107, 0.2);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #ff6b6b, #ff8787);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1rem;
+  transition: transform 0.2s;
+  box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); }
+
+.header-game {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #888;
+}
+
+.vinyl-wrapper {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto 30px;
+}
+
+.album-cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  transition: filter 0.8s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+.blur { filter: blur(25px); }
+.clear { filter: blur(0); }
+
+.btn-play {
+  background: white;
+  border: 2px solid #eee;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: #555;
+  transition: 0.3s;
+}
+.btn-play.active {
+  background: #ff6b6b;
+  color: white;
+  border-color: #ff6b6b;
+}
+
+.options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.btn-option {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 15px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #444;
+  transition: 0.2s;
+}
+.btn-option:hover {
+  background: white;
+  transform: scale(1.02);
+}
+
+.feedback-text {
+  height: 20px;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #d6336c;
+}
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-top: 4px solid white;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+.loading-screen { text-align: center; color: white; font-weight: bold; }
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    border: none;
+    padding: 20px;
+    border-radius: 20px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #444;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.menu-item .icon {
+    font-size: 1.5rem;
+    background: #fff0f6;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+.menu-item:hover:not(.disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.menu-item.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: #f9f9f9;
+}
+
+.btn-back-home {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255,255,255,0.5);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    z-index: 100;
+}
+.btn-back-home:hover {
+    background: white;
+}
+
+/* --- BARRE DE PROGRESSION --- */
+.progress-container {
+    width: 100%;
+    height: 6px;
+    background-color: #eee; /* Fond gris clair */
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden; /* Pour que la barre ne dépasse pas des bords arrondis */
+    position: relative;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #ff9a9e 0%, #ff6b6b 100%); /* Dégradé rose/rouge */
+    border-radius: 10px;
+    transition: width 0.1s linear; /* Animation fluide */
+    width: 0%;
+}
+
+/* Petite animation de vibration quand on se trompe (ajout bonus) */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
